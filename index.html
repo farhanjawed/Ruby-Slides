@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>RDBMS/Redis-NOSQL</title>
+    <title>RUBY</title>
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/black.css">
@@ -21,202 +21,654 @@
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
   </head>
-  <body>
+   <body style="background: #222 url(Kreeti_logo.png) no-repeat 98% 25px;">
     <div class="reveal">
       <div class="slides">
         <section>
-          <h2>RDBMS/Redis-NOSQL</h2>
-          <h5 style="text-transform:none">by Nabarun Banerjee</h5>
-          <p>Sr. Software Developer at Kreeti Technologies</p>
+          <h2>RUBY</h2>
+          <h5 style="text-transform:none">by Md Farhan Jawed And Sananda Saha</h5>
         </section>
 
         <section>
-          <h4>Data, Databse and Database Management System</h4>
+          <h4>Introduction</h4>
 
-          <h6 align="left" style="font-size:20px">Data</h6>
           <div style="margin-bottom:15px">
             <ul style="font-size:20px;">
-              <li>Data is numerical, charecter or other symbols which can be recorded in a form suitable for processing by a company. (e.g names and addresses of students enrolling onto a university course.)</li>
-            </ul>
-          </div>
-
-
-          <h6 align="left" style="font-size:20px">Schema</h6>
-          <div style="margin-bottom:15px">
-            <ul style="font-size:20px;">
-              <li>
-                The schema is structure of data, whereas data as facts. Schema basically indicates the rules which the data must obey. Such rules can be enforced by a database. and the more rules there is the harder it is to enter poor quality data. Example of rules includes (Name is a string, and needs to hold least 12 charecters, DOB is a date, the company forbids people over 100 years old or younger than 18 years old working for them.)
+              <li style="list-style: none;">Ruby is a pure object-oriented programming language. It was created in 1993 by Yukihiro Matsumoto of Japan.
               </li>
             </ul>
           </div>
 
-          <h6 align="left" style="font-size:20px">Database Management System</h6>
-          <div style="margin-bottom:15px">
-            <ul style="font-size:20px">
-              <li>
-                A Database Management System is a collection of  programs that allows users to specify the structure of a database, to create, query and modify the data in database and to controle access to it. (e.g. limit access to the database so that only relevant staff can access details of enrolling students).
-              </li>
+          <h6 align="left" style="font-size:20px">Features of Ruby</h6>
+          <div style="margin-bottom:15px;text-align: left">
+            <ul style="font-size:20px;">
+              <li>Ruby is a general-purpose, interpreted programming language.</li>
+              <li>Ruby is a server-side scripting language similar to Python and PERL.</li>
+              <li>Ruby can be embedded into Hypertext Markup Language (HTML).</li>
+              <li>Ruby has a rich set of built-in functions, which can be used directly into Ruby scripts.</li>
             </ul>
           </div>
         </section>
 
         <section>
-          <h4>File System vs. DBMS</h4>
+          <h4><u>Ruby Operators</u></h4>
           <ul style="font-size:20px">
-            <li>Kreeti Technologies has 500 GB of data on employees, departments, products, sales, & so on..
+            <li><strong>Ruby Arithmetic Operators</strong> +,-,/,%,*</li>
+            <li> <b>Exponent is Represented as</b> **  &nbsp; &nbsp; e.g &nbsp; 2**3 = 8</li>
+            <li>a<=>b <p><b> Combined comparison operator</b> Returns 0 if a equals b, 1 if a is greater than b and -1 if a is less than b.</p>
             </li>
             <li>
-              Data is accessed concurrently by several employees
+              === :- <p> Used to test equality within a when clause of a case statement.&nbsp; e.g &nbsp; { (1...100) === 51 } returns true</p>
             </li>
             <li>
-              Questions about the data must be answered quickly.
+              .eql? :- <p>True if the receiver and argument have both the same Data type and equal values. &nbsp; e.g &nbsp; { 1.eql?(1.0) } </p>
             </li>
             <li>
-              Changes made to the data by different users must be applied consistently
+             <b>Ruby parallel Assignment</b> &nbsp;  e.g &nbsp;  { a, b, c = 10, 20, 30 }
             </li>
             <li>
-              Access to certain parts of the data be restricted
+              <b>Ruby Logical Operators</b> &nbsp; and,or,not,&&,||,!
             </li>
             <li>
-              Many drawbacks!!!
-              <ul>
-                <li>500 GB of main memory not available to hold all data. Data must be stored on secondary storage devices.</li>
-                <li>Even if 500 GB of main memory is available, with 32-bit addressing, we cannot refer directly to more than 4GB of data.</li>
-                <li>
-                  Data redundancy and inconsistency
-                  <ul>
-                    <li>Multiple file formats, duplicate of information in different files</li>
-                  </ul>
-                </li>
-                <li>Special program to answer each question a user may ask.</li>
-              </ul>
-            </li>
-            <li>These drawbacks have prompted the development of database systems</li>
-            <li>Database systems offer solutions to all the above problems.</li>
+              <b>Ruby Range operators</b> (1..10) Creates a range from 1 to 10 inclusive, whereas (1...10) 1...10 Creates a range from 1 to 9</li>
           </ul>
         </section>
         <section>
-          <h4>ACID properties of DBMS</h4>
-          <h6 align="left" style="font-size:20px">Atomicity, Consistency, Isolation, Durability</h6>
-          <ul style="font-size:20px;">
-            <li>
-              Transactions should prosssess several properties, often called the ACID properties; they should be enforced by the concurrency controle and recovery  methods of the DBMS.
-            </li>
-            <ol>
-              <li><strong>Atomicity: </strong>A transaction is an atomic unit of processing; it should either be performed in its entirely  or not performed at all.</li>
-              <li><strong>Consistency preservation: </strong>A transaction should be consistency preserving, meaning that if it is completely executed from begining to end without interference from other transactions, it should take the database from one consistent state to another.</li>
-              <li><strong>Isolation:</strong>A transaction should appear as though it's being executed in isolation from other transactions, even though many transactions are executing concurrently. That is, the execution of a transaction should not be interfered with by any other transactions executing concurrently.</li>
-              <li><strong>Durability or permanency: </strong> The changes applied to the database by a committed transaction must persist in the database. These changes must not be lost because of any failure.</li>
-            </ol>
-          </ul>
+          <h4>Ruby if..else</h4>
+          <pre><code data-trim data-noescape>
+              x=1
+              if x > 2
+                puts "x is greater than 2"
+              elsif x <= 2 and x!=0
+                puts "x is 1"
+              else
+                puts "I can't guess the number"
+              end
+                         </pre></code>
+          <h4>Ruby if Modifier</h4>
+           <pre><code data-trim data-noescape>
+               value = 1
+               print "value #{value}" if value
+                         </pre></code>
         </section>
 
         <section>
-          <h6>DDL</h6>
-          <ul style="font-size:20px;">
-            <li>
-              DDL is abbrevation of <strong>Data Defination Language.</strong>It is used to create and modify the structure of database object in database.
-            </li>
-            <li>Examples: CREATE, ALTER, DROP statements</li>
-          </ul>
-          <p align="left" style="padding-top: 20px; font-size: 25px">Create Table</p>
+          <h4>Ruby unless Statement:</h4>
           <pre><code data-trim data-noescape>
-CREATE TABLE Students
-(Reg_no varchar2(10),
-Name char(30),
-DOB date,
-Address varchar2(50));
-          </code></pre>
-          <p align="left" style="padding-top: 20px; font-size: 25px">Drop Table</p>
-          <pre><code data-trim data-noescape>
-DROP TABLE Students
-          </code></pre>
+              x=1
+              unless x>2
+                puts "x is less than 2"
+              else
+                puts "x is greater than 2"
+              end
+                         </pre></code>
+          <h4>Ruby unless Modifier</h4>
+           <pre><code data-trim data-noescape>
+               print "If the condition is false then it enters the loop" unless false
+                         </pre></code>
         </section>
 
         <section>
-          <h6>DML</h6>
-          <ul style="font-size:20px;">
-            <li>
-              DML is abbrevation of <strong>Data Manipulation Language.</strong>It is used to retrive, store, modify, delete insert and update data in database.
-            </li>
-            <li>Examples: SELECT, UPDATE, INSERT statements</li>
-          </ul>
-          <p align="left" style="padding-top: 20px; font-size: 25px">Select from Table</p>
+          <h4>Ruby case Statement:</h4>
           <pre><code data-trim data-noescape>
-SELECT column_name1, column_name2
-FROM table_name;
-          </code></pre>
-
-          <p align="left" style="padding-top: 20px; font-size: 25px">Update data in Table</p>
-          <pre><code data-trim data-noescape>
-UPDATE table_name
-SET column1=value1,column2=value2,...
-WHERE some_column=some_value</code></pre>
+              $age =  5
+              case $age
+                when 0 .. 2
+                  puts "baby"
+                when 3 .. 6
+                  puts "little child"
+                when 7 .. 12
+                  puts "child"
+                when 13 .. 18
+                  puts "youth"
+                else
+                  puts "adult"
+              end
+          </pre></code>
+          <p>Output is "little child"</p>
         </section>
 
         <section>
-          <h6>DCL</h6>
-          <ul style="font-size:20px;">
-            <li>
-              Data Control Language(DCL) is used to control privilege in Database. To perform any operation in the database, such as for creating tables, sequences or views we need privileges. Privileges are of two types.
-            </li>
+          <section>
+            <h3><u>Ruby Loop-Statement</u></h3>
+            <h4>Ruby for Statement</h4>
+            <pre><code data-trim data-noescape>
+for i in 0..5
+  puts "Value of local variable is #{i}"
+end
+            </pre></code>
+            <strong>Output</strong>
+            <pre>
+              Value of local variable is 0
+              Value of local variable is 1
+              Value of local variable is 2
+              Value of local variable is 3
+              Value of local variable is 4
+              Value of local variable is 5
+            </pre>
+          </section>
+          <section>
+             <h4>Ruby while Statement</h4>
+             <pre><code data-trim data-noescape>
+$i = 0
+$num = 5
+
+while $i < $num  do
+   puts("Inside the loop i = #{i}" )
+   $i +=1
+end
+
+           </pre></code>
+             </section>
+        </section>
+
+        <section>
+          <h3>Ruby Iterators - each,map,inject and select</h3>
+          <section>
+            <h4>Ruby each Iterator:</h4>
+            <pre><code data-trim data-noescape>
+ary = [1,2,3,4,5]
+ary.each do |i|
+   puts i
+end
+            </pre></code>
+          </section>
+           <section>
+            <h4>Ruby map Iterator:</h4>
+            <pre><code data-trim data-noescape>
+ary = [1,2,3,4,5]
+ary.map do |i|
+   puts i+1
+end
+            </pre></code>
+           </section>
+           <section>
+            <h4>Ruby inject Iterator:</h4>
+            <pre><code data-trim data-noescape>
+ary = [1,2,3,4,5]
+ary.inject do |sum, next|
+   sum + next
+end
+            </pre></code>or
+            <pre><code data-trim data-noescape>
+ary = [1,2,3,4,5]
+ary.inject(:+)
+            </pre></code>
+           </section>
+            <section>
+            <h4>Ruby select Iterator:</h4>
+            <pre><code data-trim data-noescape>
+ary = [1,2,3,4,5]
+ary.select do |i|
+   puts i.even?
+end
+            </pre></code>
+            <p><pre>
+                Output: [2,4]
+                If we use map Output: [false,true,false,true,false]</pre></p>
+           </section>
+        </section>
+
+        <section>
+          <section>
+          <h3>Ruby Methods</h3>
+          <pre><code data-trim data-noescape>
+def method_name(parameter)
+  params = parameter
+  puts "#{params}"
+end
+
+method_name("Ruby Method")
+          </pre></code><p>Variable Number of Parameters:</p><pre><code>
+def sample (*test)
+  puts "The number of parameters is #{test.length}"
+  for i in 0...test.length
+    puts "The parameters are #{test[i]}"
+  end
+end
+sample "Kreeti", "Technologies", "SDF"
+sample "Ruby", "Class", "For", "Students"</pre></code>
+          </section>
+          <section>
+            <h4>Ruby return Statement:</h4>
+               <pre><code data-trim data-noescape>
+def test
+   i = 100
+   j = 10
+   k = 0
+end
+                </pre></code><p>Ruby returns  <strong>Last value</strong> by default. Here k=0</p>
+            <p>The <strong>"return"</strong> statement in ruby is used to return one or more values from a Ruby Method.</p>
+            <pre><code data-trim data-noescape>
+def test
+  i = 100
+  j = 200
+  k = 300
+return i, j, k
+end
+var = test
+print var
+            </pre></code><p>Output: 100 200 300</p>
+          </section>
+
+        </section>
+        <section>
+          <section>
+            <h3>Ruby Blocks</h3>
+            <p>A block is a chunks of code.A block is always invoked from a function with the same name as that of the block.You invoke a block by using the <strong>"yield"</strong> statement.</p><pre><code>
+def test
+   yield 5
+   puts "You are in the method test"
+   yield 100
+end
+test {|i| puts "You are in the block #{i}"}</pre></code>
+            <p>Output:</p><pre>
+              You are in the block 5
+              You are in the method test
+              You are in the block 100</pre>
+          </section>
+          <section>
+            <h6>BEGIN and END Blocks</h6>
+            <pre><code>
+BEGIN {
+  # BEGIN block code
+  puts "BEGIN code block"
+}
+
+END {
+  # END block code
+  puts "END code block"
+}
+  # MAIN block code
+puts "MAIN code block"
+            </pre></code>
+            <p>Output: <pre>
+BEGIN code block
+MAIN code block
+END code block
+            </pre></p>
+          </section>
+        </section>
+
+          <section>
+            <section>
+            <h3>Ruby Arrays</h3>
+            <p> Array in Ruby is a collection of Heterogeneous Element.Ruby arrays can hold objects such as String, Integer, Fixnum, Hash, Symbol, even other Array objects</p>
             <ul>
-              <li><strong>System :</strong> creating session, table etc are all types of system privilege.</li>
-              <li><strong>Object :</strong> any command or query to work on tables comes under object privilege.</li>
+              <li>Array indexing starts at 0</li>
+              <li>A negative index is assumed relative to the end of the array an index of -1 indicates the last element of the array</li>
+              <li>Ruby arrays grow automatically while adding elements to them.</li>
             </ul>
-            <li>DCL defines two commands, Grant and Revoke</li>
-            <ul>
-              <li>
-                <strong>Grant :</strong>Gives user access privileges to database.
-                <pre style="font-size:23px;"><code data-trim data-noescape>
-GRANT privilege_name
-ON object_name
-TO {user_name |PUBLIC |role_name}
-[WITH GRANT OPTION];
+            <h6>Creating Arrays</h6>
+            <pre><code>                       names = Array.new      </code></pre>
+            </section>
+
+            <section>
+                <h3>Adding Elements in Array</h3>
+                <p>Add Element at the end of the Array</p>
+                <pre><code>
+      array = [1,2,3]
+      array << 4
+                </code></pre>Or
+                <pre><code>
+      array = [1,2,3]
+      array.push(4)
                 </code></pre>
-              </li>
-              <li>
-                <strong>Revoke :</strong>Take back permissions from user.
-                <pre style="font-size:23px;"><code data-trim data-noescape>
-REVOKE privilege_name
-ON object_name
-FROM {user_name |PUBLIC |role_name}
+                <p>Add Element at the Beginning of the Array</p>
+                <pre><code>
+      array = [1,2,3]
+      array.unshift(4)
                 </code></pre>
-              </li>
-            </ul>
-          </ul>
+              </section>
+
+              <section>
+                <h3>Deleting Elements in Array</h3>
+                <p>Delete Element from the end of the Array</p>
+                <pre><code>
+      array = [1,2,3]
+      array.pop
+                </code></pre>
+                <p>Delete Element from the Beginning of the Array</p>
+                <pre><code>
+      array = [1,2,3]
+      array.shift
+                </code></pre>
+            </section>
+            <section>
+              <h3>Array Methods</h3>
+              <p>Gives the Length of the Array</p>
+              <pre><code>
+      array = [1,2,3]
+      array.length
+                </code></pre>
+                <p>Check if the Element Present in an Array</p>
+                <pre><code>
+      array = [1,2,3]
+      array.include?(2)
+                </code></pre>
+                <p>Sorting</p>
+                <pre><code>
+      array = [1,2,3]
+      array.sort
+                </code></pre>
+             </section>
+        </section>
+
+        <section>
+         <section>
+            <h3>Ruby Hashes</h3>
+            <p>A Hash is a collection of key-value pairs.It is similar to an Array, except that indexing is done via arbitrary keys</p> Example
+            <pre><code>{ "India": "+91" }</code></pre>
+            <h6>Creating Hashes:</h6>
+            <pre><code>
+hash = Hash.new("country")
+puts "#{hash[44]}"
+puts "#{hash[11]}"
+            </code></pre><p>Default value for the given Hash is "country" for any Key.</p>
+         </section>
+
+         <section>
+           <p>Adding and Deleting Element from Hash</p>
+           <pre><code>
+hash = { india: 91, UK: 78}
+
+puts "#{hash[:india]} #{hash[:UK]}"
+
+hash[:USA] = 80  #Adding Element into Hash
+
+puts "#{hash[:USA]}"
+
+hash.delete(:UK) #Deleting Element from Hash
+           </code></pre>
+         </section>
+
+         <section>
+           <h3>Hash Built-in Methods:</h3>
+           <p>Keys and Values</p>
+           <pre><code>
+             hash = { india: 91, UK: 78}
+             puts hash.keys
+             puts hash.values
+           </pre></code>
+           <p>Loop over Hash</p>
+           <pre><code>
+hash = { india: 91, UK: 78}
+hash.each {|key,value| puts "#{key} #{value}"}
+           </pre></code>
+         </section>
+        </section>
+
+          <section>
+            <section>
+              <h3>Ruby Classes and Objects</h3>
+              <pre><code data-trim data-noescape>
+  class Customer
+
+    def initialize(id, name) #Default Method
+        @cust_id=id
+        @cust_name=name
+     end
+
+     def print
+      print "Hello #{@cust_name}!"
+     end
+  end
+
+  cust1 = Customer.new("1", "Farhan") #Creating Object for that class
+  cust2 = Customer.new("2", "jawed")
+
+  cust1.print #Method Calling
+  </code></pre><small>The initialize method is a special type of method, which will be executed when the new method of the class is called with parameters.</small>
+            </section>
+
+            <section>
+              <h4>Variables in a Ruby Class</h4>
+              <p><u>Ruby provides four types of variables:</u></p><br>
+              <ul style="font-size: 22px">
+                <li><u>Local Variables:</u> Local variables are the variables that are defined in a method.Local variables begin with a lowercase letter or _.</li><br>
+                <li><u>Instance Variables:</u> Instance variables are available across methods for any particular instance or object.Instance variables are preceded by the at sign (@) followed by the variable name.</li><br>
+                <li><u>Class Variables:</u> Class variables are available across different objects. They are preceded by the sign @@ and are followed by the variable name.</li><br>
+                <li><u>Global Variables:</u> Class variables are not available across classes.The global variables are always preceded by the dollar sign ($)</li><br>
+              </ul>
+            </section>
+
+            <section>
+              <h3>Ruby Constants:</h3>
+              <small>Constants begin with an uppercase letter.The value of the constant does not change throught the program.Making an assignment to a constant that is already initialized produces a warning. Constants defined within a class or module can be accessed from within that class or module, and those defined outside a class or module can be accessed globally.Constants may not be defined within methods</small>
+              <pre><code>
+class Example
+  VAR1 = 100
+  VAR2 = 200
+   def show
+       puts "Value of first Constant is #{VAR1}"
+       puts "Value of second Constant is #{VAR2}"
+   end
+end
+
+# Create Objects
+object=Example.new()
+object.show
+              </code></pre>
+            </section>
+        </section>
+
+        <section>
+          <h3>Date & Time in Ruby</h3>
+          <pre><code>
+time = Time.new #Creating Time Object
+time.now        #Gives Current Time
+time.strftime("%m-%Y-%d %H:%M:%S") #Change the Format for Date
+          </code></pre>
+          <h3>Comments In Ruby</h3>
+          <pre><code>
+# Single line comment
+
+=begin
+  ...Multiline Comments
+=end
+          </code></pre>
+        </section>
+
+        <section>
+        <section>
+          <h3>Inheritance in Ruby</h3>
+          <pre>
+            <code>
+class Mammal
+  def breathe
+    puts "inhale and exhale"
+  end
+end
+
+class Cat < Mammal
+  def speak
+    puts "Meow"
+  end
+end
+
+rani = Cat.new
+rani.breathe
+rani.speak</code></pre>
         </section>
         <section>
-          <h6>Database Constraints</h6>
-          <ul style="font-size:20px;">
-            Constraints are rules used to limit the type of data that can go into a table, to maintain the accuracy and integrity of the data inside table.
-            <li>
-              <strong>Column level constraints :</strong> limits only column data
-              <ul>
-                <li>
-                  NOT NULL
-                  <pre style="font-size:23px;"><code data-trim data-noescape>
-CREATE table Student(s_id int NOT NULL, Name varchar(60), Age int);
-                  </code></pre>
-                </li>
-                <li>
-                  UNIQUE
-                  <pre style="font-size:23px;"><code data-trim data-noescape>
-CREATE table Student(s_id int NOT NULL UNIQUE, Name varchar(60), Age int);
-                  </code></pre>
-                </li>
-                <li>
-                  FOREIGN KEY
-                  <pre style="font-size:23px;"><code data-trim data-noescape>
-CREATE table Order_Detail(order_id int PRIMARY KEY,
-order_name varchar(60) NOT NULL,
-c_id int FOREIGN KEY REFERENCES Customer_Detail(c_id));
-                  </code></pre>
-                </li>
-              </ul>
-            </li>
-            <li><strong>Table level constraints :</strong> limits whole table data</li>
-          </ul>
+          <h3>Modules and Mixin</h3>
+          <pre>
+            <code>
+  module Moral
+   VERY_BAD = 0
+   BAD = 1
+   def Moral.sin(badness)
+   # ...
+   end
+end
+
+require 'moral'
+
+wrongdoing = Moral.sin(Moral::VERY_BAD)
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h3>Mixin</h3>
+          <pre>
+          <code>
+module A
+   def a1
+   end
+   def a2
+   end
+end
+module B
+   def b1
+   end
+   def b2
+   end
+end
+
+class Sample
+include A
+include B
+   def s1
+   end
+end
+
+samp=Sample.new
+samp.a1
+samp.a2
+samp.b1
+samp.b2
+samp.s1
+          </code>
+          </pre>
+        </section>
+
+        <section>
+          <h3>Access Specifiers</h3>
+          <p><strong>Public:</strong>methods can be called by everyone - no access control is enforced</p>
+          <p><strong>Protected:</strong>methods can be invoked only by objects of the defining class and its subclasses.</p>
+          <p><strong>Private:</strong>methods can be called only in the context of the current object; you cannot invoke another object's private methods.</p>
+        </section>
+        <section>
+          <h3>Meta Programming</h3>
+          Metaprogramming is a technique using which, you can define methods and classes during runtime.
+          <pre><code>class Developer
+  def self.backend
+    "I am backend developer"
+  end
+  def frontend
+    "I am frontend developer"
+  end
+end</code></pre>
+ In Ruby everything is an object, including classes. Since Developer is an instance, it is an instance of class Class.
+          <pre><code>Developer.class # Class
+Class.superclass # Module
+Module.superclass # Object
+Object.superclass # BasicObject
+          </code>
+        </section>
+        <section>
+          <section>
+          <h3>Proc</h3>
+          <p>Proc is the ability to take a block of code (code in between do and end), wrap it up in an object (called a proc), store it in a variable or pass it to a method, and run the code in the block whenever you feel like (more than once, if you want)</p>
+          <pre>
+          <code>
+toast = Proc.new do
+  puts 'Cheers!'
+end
+
+toast.call
+toast.call
+</code>
+</pre>
+</section>
+
+</section>
+<section>
+  <h3>Lambda</h3>
+  <p> Lambda is like a function but without a name , in ruby lamdas are also objects.</p>
+    <pre><code>l = lambda do |string|
+  if string == "try"
+    return "There's no such thing"
+  else
+    return "Do or do not."
+  end
+end
+puts l.call("try")</code></pre>
+</section>
+<section><h3>difference between block,proc and lambda</h3>
+<ul><li>proc and lambda are objects whereas block is not an object.</li>
+<li>Only one block can be passed as arguement , in contrast we can pass multiple procs as arguments.</li>
+<li>Lambdas check the number of arguments, while procs do not.</li>
+<li>Lambdas and procs treat the ‘return’ keyword differently.</li><ul></section>
+        </section>
+        <section>
+          <h3>Regular Expression</h3>
+          A regular expression is a special sequence of characters that helps you match or find other strings or sets of strings using a specialized syntax held in a pattern.
+          <pre><code>line1 = "Cats are smarter than dogs";
+line2 = "Dogs also like meat";
+
+if ( line1 =~ /Cats(.*)/ )
+  puts "Line1 contains Cats"
+end
+if ( line2 =~ /Cats(.*)/ )
+  puts "Line2 contains  Dogs"
+end
+          </code></pre>
+        </section>
+        <section>
+        <section>
+          <h3>Exception</h3>
+          Ruby provide a nice mechanism to handle exceptions. We enclose the code that could raise an exception in a begin/end block and use rescue clauses to tell Ruby the types of exceptions we want to handle.
+          <pre><code>begin
+   file = open("/unexistant_file")
+   if file
+      puts "File opened successfully"
+   end
+rescue
+      puts "File opened successfully"
+end
+</code></pre></section>
+<section>
+  <h3>Retry keyword</h3>
+  You can capture an exception using rescue block and then use retry statement to execute begin block from the beginning.
+  <pre>
+    <code>begin
+   file = open("/unexistant_file")
+   if file
+      puts "File opened successfully"
+   end
+rescue
+   fname = "existant_file"
+   retry
+end
+    </code>
+  </pre>
+</section>
+<section>
+  <h3>Raise keyword</h3>
+  <pre><code>begin
+  raise 'A test exception.'
+rescue Exception => e
+  puts e.message
+  puts e.backtrace.inspect
+end  </code></pre>
+A test exception.</br>
+["main.rb:4"]
+</section>
+<section>
+  <h3>Ensure keyword</h3>
+  <pre><code>begin
+  raise 'A test exception.'
+rescue Exception => e
+  puts e.message
+  puts e.backtrace.inspect
+ensure
+  puts "Ensuring execution"
+end</code>
+<code>A test exception.
+["main.rb:4"]
+Ensuring execution</code></pre>
+</section>
         </section>
       </div>
     </div>
